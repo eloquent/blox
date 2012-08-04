@@ -13,122 +13,109 @@ namespace Eloquent\Blox;
 
 class BloxParser implements DocumentationBlockParser
 {
-  /**
-   * @param string $blockComment
-   *
-   * @return DocumentationBlock
-   */
-  public function parseBlockComment($blockComment)
-  {
-    $blockCommentLines = $this->parseBlockCommentLines($blockComment);
-
-    return new AST\DocumentationBlock(
-      $this->parseBlockCommentTags($blockCommentLines)
-      , $this->parseBlockCommentSummary($blockCommentLines)
-      , $this->parseBlockCommentBody($blockCommentLines)
-    );
-  }
-
-  /**
-   * @param string $blockComment
-   *
-   * @return array
-   */
-  protected function parseBlockCommentLines($blockComment)
-  {
-    $lines = array();
-    if (preg_match_all(static::PATTERN_LINES, $blockComment, $matches))
+    /**
+     * @param string $blockComment
+     *
+     * @return DocumentationBlock
+     */
+    public function parseBlockComment($blockComment)
     {
-      $lines = $matches[1];
-    }
+        $blockCommentLines = $this->parseBlockCommentLines($blockComment);
 
-    return $lines;
-  }
-
-  /**
-   * @param array $blockCommentLines
-   *
-   * @return DocumentationTags
-   */
-  protected function parseBlockCommentTags(array &$blockCommentLines)
-  {
-    $tags = array();
-    foreach ($blockCommentLines as $index => $blockCommentLine)
-    {
-      if (preg_match(static::PATTERN_TAG, $blockCommentLine, $matches))
-      {
-        $tags[] = new AST\DocumentationTag(
-          $matches[1]
-          , $matches[2]
+        return new AST\DocumentationBlock(
+            $this->parseBlockCommentTags($blockCommentLines)
+            , $this->parseBlockCommentSummary($blockCommentLines)
+            , $this->parseBlockCommentBody($blockCommentLines)
         );
-      }
-
-      if (count($tags) > 0)
-      {
-        unset($blockCommentLines[$index]);
-      }
     }
 
-    return $tags;
-  }
-
-  /**
-   * @param array $blockCommentLines
-   *
-   * @return string|null
-   */
-  protected function parseBlockCommentSummary(array &$blockCommentLines)
-  {
-    $summary = '';
-    foreach ($blockCommentLines as $index => $blockCommentLine)
+    /**
+     * @param string $blockComment
+     *
+     * @return array
+     */
+    protected function parseBlockCommentLines($blockComment)
     {
-      if ('' === trim($blockCommentLine))
-      {
-        break;
-      }
+        $lines = array();
+        if (preg_match_all(static::PATTERN_LINES, $blockComment, $matches)) {
+            $lines = $matches[1];
+        }
 
-      $summary .= $blockCommentLine."\n";
-
-      unset($blockCommentLines[$index]);
+        return $lines;
     }
 
-    if ('' === $summary)
+    /**
+     * @param array $blockCommentLines
+     *
+     * @return DocumentationTags
+     */
+    protected function parseBlockCommentTags(array &$blockCommentLines)
     {
-      $summary = null;
+        $tags = array();
+        foreach ($blockCommentLines as $index => $blockCommentLine) {
+            if (preg_match(static::PATTERN_TAG, $blockCommentLine, $matches)) {
+                $tags[] = new AST\DocumentationTag(
+                    $matches[1]
+                    , $matches[2]
+                );
+            }
+
+            if (count($tags) > 0) {
+                unset($blockCommentLines[$index]);
+            }
+        }
+
+        return $tags;
     }
-    else
+
+    /**
+     * @param array $blockCommentLines
+     *
+     * @return string|null
+     */
+    protected function parseBlockCommentSummary(array &$blockCommentLines)
     {
-      $summary = trim($summary);
+        $summary = '';
+        foreach ($blockCommentLines as $index => $blockCommentLine) {
+            if ('' === trim($blockCommentLine)) {
+                break;
+            }
+
+            $summary .= $blockCommentLine."\n";
+
+            unset($blockCommentLines[$index]);
+        }
+
+        if ('' === $summary) {
+            $summary = null;
+        } else {
+            $summary = trim($summary);
+        }
+
+        return $summary;
     }
 
-    return $summary;
-  }
-
-  /**
-   * @param array $blockCommentLines
-   *
-   * @return string|null
-   */
-  protected function parseBlockCommentBody(array $blockCommentLines)
-  {
-    $body = '';
-    foreach ($blockCommentLines as $index => $blockCommentLine)
+    /**
+     * @param array $blockCommentLines
+     *
+     * @return string|null
+     */
+    protected function parseBlockCommentBody(array $blockCommentLines)
     {
-      $body .= $blockCommentLine."\n";
+        $body = '';
+        foreach ($blockCommentLines as $index => $blockCommentLine) {
+            $body .= $blockCommentLine."\n";
+        }
+
+        if ('' === $body) {
+            $body = null;
+        } else {
+            $body = trim($body);
+        }
+
+        return $body;
     }
 
-    if ('' === $body)
-    {
-      $body = null;
-    }
-    else
-    {
-      $body = trim($body);
-    }
-
-    return $body;
-  }
-
-  const PATTERN_LINES = '~^\s*\* ?(?!/)(.*)$~m';
-  const PATTERN_TAG = '~^@(\w+)\s+(.*)\s*$~';
+    const PATTERN_LINES = '~^\s*\* ?(?!/)(.*)$~m';
+    const PATTERN_TAG = '~^@(\w+)\s+(.*)\s*$~';
 }
