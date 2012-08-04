@@ -11,7 +11,7 @@
 
 namespace Eloquent\Blox;
 
-class BloxParser
+class BloxParser implements DocumentationBlockParser
 {
   /**
    * @param string $blockComment
