@@ -112,6 +112,20 @@ EOD;
         $expected = new AST\DocumentationBlock($tags);
         $data[] = array($expected, $blockComment);
 
+        // #5: Empty tags
+        $blockComment = <<<'EOD'
+/**
+ * @foo
+ * @bar
+ */
+EOD;
+        $tags = array(
+            new AST\DocumentationTag('foo'),
+            new AST\DocumentationTag('bar'),
+        );
+        $expected = new AST\DocumentationBlock($tags);
+        $data[] = array($expected, $blockComment);
+
         return $data;
     }
 

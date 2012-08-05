@@ -54,9 +54,14 @@ class BloxParser implements DocumentationBlockParser
         $tags = array();
         foreach ($blockCommentLines as $index => $blockCommentLine) {
             if (preg_match(static::PATTERN_TAG, $blockCommentLine, $matches)) {
+                $content = null;
+                if (array_key_exists(2, $matches)) {
+                    $content = $matches[2];
+                }
+
                 $tags[] = new AST\DocumentationTag(
                     $matches[1]
-                    , $matches[2]
+                    , $content
                 );
             }
 
@@ -117,5 +122,5 @@ class BloxParser implements DocumentationBlockParser
     }
 
     const PATTERN_LINES = '~^\s*\* ?(?!/)(.*)$~m';
-    const PATTERN_TAG = '~^@(\w+)\s+(.*)\s*$~';
+    const PATTERN_TAG = '~^@(\w+)(?:\s+(.*))?\s*$~';
 }

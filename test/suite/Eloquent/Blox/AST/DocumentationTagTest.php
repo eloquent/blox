@@ -26,6 +26,15 @@ class DocumentationTagTest extends PHPUnit_Framework_TestCase
         $this->assertSame('bar', $tag->content());
     }
 
+    public function testTagNullContent()
+    {
+        $name = 'foo';
+        $tag = new DocumentationTag($name);
+
+        $this->assertSame('foo', $tag->name());
+        $this->assertNull($tag->content());
+    }
+
     public function testAccept()
     {
         $tag = new DocumentationTag('foo', 'bar');

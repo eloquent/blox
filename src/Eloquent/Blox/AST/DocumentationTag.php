@@ -15,9 +15,9 @@ class DocumentationTag
 {
     /**
      * @param string $name
-     * @param string $content
+     * @param string|null $content
      */
-    public function __construct($name, $content)
+    public function __construct($name, $content = null)
     {
         $this->name = $name;
         $this->content = $content;
@@ -32,7 +32,7 @@ class DocumentationTag
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function content()
     {
