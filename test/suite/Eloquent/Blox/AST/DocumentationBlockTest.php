@@ -70,10 +70,14 @@ class DocumentationBlockTest extends PHPUnit_Framework_TestCase
 
     public function testAccept()
     {
-        $visitor = Phake::mock(__NAMESPACE__.'\Visitor');
         $block = new DocumentationBlock;
-        $block->accept($visitor);
+        $visitor = Phake::mock(__NAMESPACE__.'\Visitor');
+        Phake::when($visitor)
+            ->visitDocumentationBlock(Phake::anyParameters())
+            ->thenReturn('foo')
+        ;
 
+        $this->assertSame('foo', $block->accept($visitor));
         Phake::verify($visitor)->visitDocumentationBlock(
             $this->identicalTo($block)
         );
