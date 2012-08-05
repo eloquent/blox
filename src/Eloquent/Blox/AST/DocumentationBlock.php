@@ -11,7 +11,9 @@
 
 namespace Eloquent\Blox\AST;
 
-class DocumentationBlock
+use Icecave\Visita\Host;
+
+class DocumentationBlock extends Host
 {
     /**
      * @param array<DocumentationTag>|null $tags
@@ -71,16 +73,6 @@ class DocumentationBlock
     public function body()
     {
         return $this->body;
-    }
-
-    /**
-     * @param Visitor $visitor
-     *
-     * @return mixed
-     */
-    public function accept(Visitor $visitor)
-    {
-        return $visitor->visitDocumentationBlock($this);
     }
 
     private $tags;

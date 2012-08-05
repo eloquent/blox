@@ -1,7 +1,10 @@
 {
-    "hash": "207a6c83af16f9339cefc4f16ebe5f97",
+    "hash": "a9604e2cb2db68e62d42ed671ae9fb5a",
     "packages": [
-
+        {
+            "package": "icecave/visita",
+            "version": "0.1.0"
+        }
     ],
     "packages-dev": [
         {

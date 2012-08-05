@@ -67,19 +67,4 @@ class DocumentationBlockTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expectedBar, $block->tagsbyName('bar'));
         $this->assertEquals($expectedBaz, $block->tagsbyName('baz'));
     }
-
-    public function testAccept()
-    {
-        $block = new DocumentationBlock;
-        $visitor = Phake::mock(__NAMESPACE__.'\Visitor');
-        Phake::when($visitor)
-            ->visitDocumentationBlock(Phake::anyParameters())
-            ->thenReturn('foo')
-        ;
-
-        $this->assertSame('foo', $block->accept($visitor));
-        Phake::verify($visitor)->visitDocumentationBlock(
-            $this->identicalTo($block)
-        );
-    }
 }

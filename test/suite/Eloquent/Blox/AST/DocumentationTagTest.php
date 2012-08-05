@@ -34,19 +34,4 @@ class DocumentationTagTest extends PHPUnit_Framework_TestCase
         $this->assertSame('foo', $tag->name());
         $this->assertNull($tag->content());
     }
-
-    public function testAccept()
-    {
-        $tag = new DocumentationTag('foo', 'bar');
-        $visitor = Phake::mock(__NAMESPACE__.'\Visitor');
-        Phake::when($visitor)
-            ->visitDocumentationTag(Phake::anyParameters())
-            ->thenReturn('foo')
-        ;
-
-        $this->assertSame('foo', $tag->accept($visitor));
-        Phake::verify($visitor)->visitDocumentationTag(
-            $this->identicalTo($tag)
-        );
-    }
 }
