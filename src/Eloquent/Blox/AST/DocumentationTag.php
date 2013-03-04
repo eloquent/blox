@@ -11,9 +11,7 @@
 
 namespace Eloquent\Blox\AST;
 
-use Icecave\Visita\Host;
-
-class DocumentationTag extends Host
+class DocumentationTag
 {
     /**
      * @param string $name
@@ -39,6 +37,16 @@ class DocumentationTag extends Host
     public function content()
     {
         return $this->content;
+    }
+
+    /**
+     * @param Visitor $visitor
+     *
+     * @return mixed
+     */
+    public function accept(Visitor $visitor)
+    {
+        return $visitor->visitDocumentationTag($this);
     }
 
     private $name;

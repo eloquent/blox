@@ -12,8 +12,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
-        "icecave/visita": "~0.1"
+        "php": ">=5.3.0"
     },
     "require-dev": {
         "icecave/archer": "~0.2"

@@ -11,9 +11,7 @@
 
 namespace Eloquent\Blox\AST;
 
-use Icecave\Visita\IVisitor;
-
-interface Visitor extends IVisitor
+interface Visitor
 {
     /**
      * @param DocumentationBlock $documentationBlock

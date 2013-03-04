@@ -1,52 +1,7 @@
 {
-    "hash": "bd27693996dfc3a4d0b5eae95660bcb1",
+    "hash": "dace2a7a9d1ab1b3c75bf3de9d971c31",
     "packages": [
-        {
-            "name": "icecave/visita",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/IcecaveStudios/visita.git",
-                "reference": "0.1.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/IcecaveStudios/visita/zipball/0.1.0",
-                "reference": "0.1.0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phake/phake": "1.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Icecave\\Visita": "lib"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "James Harris",
-                    "email": "james.harris@icecave.com.au",
-                    "homepage": null,
-                    "role": null
-                }
-            ],
-            "description": "A PHP library for assisting with visitor pattern implementations.",
-            "homepage": "https://github.com/IcecaveStudios/visita",
-            "keywords": [
-                "design",
-                "pattern",
-                "visitor"
-            ],
-            "time": "2012-08-05 06:35:23"
-        }
+
     ],
     "packages-dev": [
         {
@@ -133,6 +88,7 @@
                     "src"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "include-path": [
                 "src"
             ],
@@ -142,9 +98,7 @@
             "authors": [
                 {
                     "name": "Mike Lively",
-                    "email": "m@digitalsandwich.com",
-                    "homepage": null,
-                    "role": null
+                    "email": "m@digitalsandwich.com"
                 }
             ],
             "description": "The Phake mock testing library",
@@ -153,7 +107,7 @@
                 "mock",
                 "testing"
             ],
-            "time": "2012-05-14 15:06:51"
+            "time": "2012-05-14 08:06:51"
         },
         {
             "name": "symfony/console",
