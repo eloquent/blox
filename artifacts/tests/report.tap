@@ -1,0 +1,47 @@
+TAP version 13
+ok 1 - Eloquent\Blox\AST\DocumentationBlockTest::testBlock
+ok 2 - Eloquent\Blox\AST\DocumentationBlockTest::testTagsByName
+ok 3 - Eloquent\Blox\AST\DocumentationBlockTest::testAccept
+ok 4 - Eloquent\Blox\AST\DocumentationTagTest::testTag
+ok 5 - Eloquent\Blox\AST\DocumentationTagTest::testTagNullContent
+ok 6 - Eloquent\Blox\AST\DocumentationTagTest::testAccept
+ok 7 - Eloquent\Blox\BloxParserTest::testParseBlockComment with data set #0 (Eloquent\Blox\AST\DocumentationBlock, '/**
+ *
+ */')
+ok 8 - Eloquent\Blox\BloxParserTest::testParseBlockComment with data set #1 (Eloquent\Blox\AST\DocumentationBlock, '/**
+ * This is the summary.
+ *     This is also the summary.
+ *
+ * This is the body.
+ *
+ *     This is also the body.
+ *
+ * @foo bar baz
+ * @foo qux doom
+ * @splat  boing
+ * This is ignored.
+ * This is also ignored.
+ */')
+ok 9 - Eloquent\Blox\BloxParserTest::testParseBlockComment with data set #2 (Eloquent\Blox\AST\DocumentationBlock, '/**
+ * This is the summary.
+ *     This is also the summary.
+ *
+ */')
+ok 10 - Eloquent\Blox\BloxParserTest::testParseBlockComment with data set #3 (Eloquent\Blox\AST\DocumentationBlock, '/**
+ *
+ * This is the body.
+ *
+ *     This is also the body.
+ */')
+ok 11 - Eloquent\Blox\BloxParserTest::testParseBlockComment with data set #4 (Eloquent\Blox\AST\DocumentationBlock, '/**
+ * @foo bar baz
+ * @foo qux doom
+ * @splat boing
+ * This is ignored.
+ * This is also ignored.
+ */')
+ok 12 - Eloquent\Blox\BloxParserTest::testParseBlockComment with data set #5 (Eloquent\Blox\AST\DocumentationBlock, '/**
+ * @foo
+ * @bar
+ */')
+1..12
