@@ -2,13 +2,14 @@
 
 *A parser for block comment documentation.*
 
-## Code quality
+[![Build Status]](http://travis-ci.org/eloquent/blox)
+[![Test Coverage]](http://eloquent-software.com/blox/artifacts/tests/coverage/)
 
-Blox strives to attain a high level of quality. A full test suite is
-available, and code coverage is closely monitored.
+## Installation
 
-### Latest revision test suite results
-[![Build Status](https://secure.travis-ci.org/eloquent/blox.png)](http://travis-ci.org/eloquent/blox)
+Available as [Composer](http://getcomposer.org/) package
+[eloquent/blox](https://packagist.org/packages/eloquent/blox).
 
-### Latest revision test suite coverage
-<http://ci.ezzatron.com/report/blox/coverage/>
+<!-- references -->
+[Build Status]: https://raw.github.com/eloquent/blox/gh-pages/artifacts/images/icecave/regular/build-status.png
+[Test Coverage]: https://raw.github.com/eloquent/blox/gh-pages/artifacts/images/icecave/regular/coverage.png
