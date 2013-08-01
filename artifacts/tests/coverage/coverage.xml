@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1375363707">
-  <project timestamp="1375363707">
+<coverage generated="1375363913">
+  <project timestamp="1375363913">
     <package name="Eloquent\Blox">
       <file name="/home/travis/build/eloquent/blox/src/Eloquent/Blox/BloxParser.php">
         <class name="BloxParser" namespace="Eloquent\Blox">
