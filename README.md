@@ -2,8 +2,8 @@
 
 *A parser for block comment documentation.*
 
-[![Build Status]](http://travis-ci.org/eloquent/blox)
-[![Test Coverage]](http://eloquent-software.com/blox/artifacts/tests/coverage/)
+[![Build Status]][Latest build]
+[![Test Coverage]][Test coverage report]
 
 ## Installation and documentation
 
