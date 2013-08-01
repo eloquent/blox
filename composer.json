@@ -1,7 +1,7 @@
 {
     "name": "eloquent/blox",
     "description": "A parser for block comment documentation.",
-    "keywords": ["documentation","parser","comment","block","docblock","phpdoc","phpdocumentor","annotation","tag"],
+    "keywords": ["documentation", "parser", "comment", "block", "docblock", "phpdoc", "phpdocumentor", "annotation", "tag"],
     "homepage": "https://github.com/eloquent/blox",
     "license": "MIT",
     "authors": [
@@ -12,10 +12,10 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3"
     },
     "require-dev": {
-        "icecave/archer": "~0.2"
+        "icecave/archer": "1.0.0-alpha.2"
     },
     "autoload": {
         "psr-0": {

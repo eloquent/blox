@@ -11,21 +11,26 @@
 
 namespace Eloquent\Blox;
 
-class BloxParser implements DocumentationBlockParser
+/**
+ * A documentation parser for standard Blox-type documentation block comments.
+ */
+class BloxParser implements DocumentationBlockParserInterface
 {
     /**
-     * @param string $blockComment
+     * Parse a documentation block comment.
      *
-     * @return DocumentationBlock
+     * @param string $blockComment The documentation block comment.
+     *
+     * @return DocumentationBlock The parsed documentation block object.
      */
     public function parseBlockComment($blockComment)
     {
         $blockCommentLines = $this->parseBlockCommentLines($blockComment);
 
-        return new AST\DocumentationBlock(
-            $this->parseBlockCommentTags($blockCommentLines)
-            , $this->parseBlockCommentSummary($blockCommentLines)
-            , $this->parseBlockCommentBody($blockCommentLines)
+        return new Element\DocumentationBlock(
+            $this->parseBlockCommentTags($blockCommentLines),
+            $this->parseBlockCommentSummary($blockCommentLines),
+            $this->parseBlockCommentBody($blockCommentLines)
         );
     }
 
@@ -37,7 +42,7 @@ class BloxParser implements DocumentationBlockParser
     protected function parseBlockCommentLines($blockComment)
     {
         $lines = array();
-        if (preg_match_all(static::PATTERN_LINES, $blockComment, $matches)) {
+        if (preg_match_all('~^\s*\* ?(?!/)(.*)$~m', $blockComment, $matches)) {
             $lines = $matches[1];
         }
 
@@ -45,36 +50,66 @@ class BloxParser implements DocumentationBlockParser
     }
 
     /**
-     * @param array $blockCommentLines
+     * @param array &$blockCommentLines
      *
      * @return DocumentationTags
      */
     protected function parseBlockCommentTags(array &$blockCommentLines)
     {
         $tags = array();
+        $currentTagName = $currentTagContent = null;
         foreach ($blockCommentLines as $index => $blockCommentLine) {
-            if (preg_match(static::PATTERN_TAG, $blockCommentLine, $matches)) {
-                $content = null;
-                if (array_key_exists(2, $matches)) {
-                    $content = $matches[2];
-                }
+            $isTagLine = preg_match(
+                '~^@(\w+)(?:\s+(.*))?\s*$~',
+                $blockCommentLine,
+                $matches
+            );
+            $isEmptyLine = '' === trim($blockCommentLine);
 
-                $tags[] = new AST\DocumentationTag(
-                    $matches[1]
-                    , $content
+            if (
+                ($isTagLine || $isEmptyLine) &&
+                null !== $currentTagName
+            ) {
+                if ('' === $currentTagContent) {
+                    $currentTagContent = null;
+                }
+                $tags[] = new Element\DocumentationTag(
+                    $currentTagName,
+                    $currentTagContent
                 );
+
+                $currentTagName = $currentTagContent = null;
             }
 
-            if (count($tags) > 0) {
+            if ($isTagLine) {
+                $currentTagName = $matches[1];
+                $currentTagContent = '';
+                if (array_key_exists(2, $matches)) {
+                    $currentTagContent = $matches[2];
+                }
+            } elseif (!$isEmptyLine) {
+                $currentTagContent .= ' ' . ltrim($blockCommentLine);
+            }
+
+            if (null !== $currentTagName || count($tags) > 0) {
                 unset($blockCommentLines[$index]);
             }
+        }
+        if (null !== $currentTagName) {
+            if ('' === $currentTagContent) {
+                $currentTagContent = null;
+            }
+            $tags[] = new Element\DocumentationTag(
+                $currentTagName,
+                $currentTagContent
+            );
         }
 
         return $tags;
     }
 
     /**
-     * @param array $blockCommentLines
+     * @param array &$blockCommentLines
      *
      * @return string|null
      */
@@ -86,7 +121,10 @@ class BloxParser implements DocumentationBlockParser
                 break;
             }
 
-            $summary .= $blockCommentLine."\n";
+            if ('' !== $summary) {
+                $summary .= ' ';
+            }
+            $summary .= ltrim($blockCommentLine);
 
             unset($blockCommentLines[$index]);
         }
@@ -109,7 +147,7 @@ class BloxParser implements DocumentationBlockParser
     {
         $body = '';
         foreach ($blockCommentLines as $index => $blockCommentLine) {
-            $body .= $blockCommentLine."\n";
+            $body .= $blockCommentLine . "\n";
         }
 
         if ('' === $body) {
@@ -120,7 +158,4 @@ class BloxParser implements DocumentationBlockParser
 
         return $body;
     }
-
-    const PATTERN_LINES = '~^\s*\* ?(?!/)(.*)$~m';
-    const PATTERN_TAG = '~^@(\w+)(?:\s+(.*))?\s*$~';
 }

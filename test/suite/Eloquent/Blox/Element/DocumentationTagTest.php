@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Eloquent\Blox\AST;
+namespace Eloquent\Blox\Element;
 
 use Phake;
 use PHPUnit_Framework_TestCase;
@@ -37,7 +37,7 @@ class DocumentationTagTest extends PHPUnit_Framework_TestCase
 
     public function testAccept()
     {
-        $visitor = Phake::mock(__NAMESPACE__.'\Visitor');
+        $visitor = Phake::mock(__NAMESPACE__.'\DocumentationVisitorInterface');
         Phake::when($visitor)
             ->visitDocumentationTag(Phake::anyParameters())
             ->thenReturn('foo')

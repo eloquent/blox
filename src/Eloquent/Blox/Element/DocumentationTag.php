@@ -9,13 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Eloquent\Blox\AST;
+namespace Eloquent\Blox\Element;
 
+/**
+ * Represents a single documentation tag.
+ */
 class DocumentationTag
 {
     /**
-     * @param string $name
-     * @param string|null $content
+     * Construct a new documentation tag.
+     *
+     * @param string      $name    The tag name.
+     * @param string|null $content The tag content.
      */
     public function __construct($name, $content = null)
     {
@@ -24,7 +29,9 @@ class DocumentationTag
     }
 
     /**
-     * @return string
+     * Get the tag name.
+     *
+     * @return string The tag name.
      */
     public function name()
     {
@@ -32,7 +39,9 @@ class DocumentationTag
     }
 
     /**
-     * @return string|null
+     * Get the tag content.
+     *
+     * @return string|null The tag content.
      */
     public function content()
     {
@@ -40,11 +49,13 @@ class DocumentationTag
     }
 
     /**
-     * @param Visitor $visitor
+     * Visit this tag.
      *
-     * @return mixed
+     * @param DocumentationVisitorInterface $visitor The visitor to accept.
+     *
+     * @return mixed The visitor's result.
      */
-    public function accept(Visitor $visitor)
+    public function accept(DocumentationVisitorInterface $visitor)
     {
         return $visitor->visitDocumentationTag($this);
     }

@@ -19,16 +19,14 @@ class BloxParserTest extends PHPUnit_Framework_TestCase
     {
         $data = array();
 
-        // #0: Empty block
         $blockComment = <<<'EOD'
 /**
  *
  */
 EOD;
-        $expected = new AST\DocumentationBlock;
-        $data[] = array($expected, $blockComment);
+        $expected = new Element\DocumentationBlock;
+        $data['Empty block'] = array($expected, $blockComment);
 
-        // #1: Standard block
         $blockComment = <<<'EOD'
 /**
  * This is the summary.
@@ -41,28 +39,25 @@ EOD;
  * @foo bar baz
  * @foo qux doom
  * @splat  boing
+ *     This is part of the previous tag.
+ *
  * This is ignored.
- * This is also ignored.
  */
 EOD;
         $tags = array(
-            new AST\DocumentationTag('foo', 'bar baz'),
-            new AST\DocumentationTag('foo', 'qux doom'),
-            new AST\DocumentationTag('splat', 'boing'),
+            new Element\DocumentationTag('foo', 'bar baz'),
+            new Element\DocumentationTag('foo', 'qux doom'),
+            new Element\DocumentationTag('splat', "boing This is part of the previous tag."),
         );
-        $summary = <<<'EOD'
-This is the summary.
-    This is also the summary.
-EOD;
+        $summary = 'This is the summary. This is also the summary.';
         $body = <<<'EOD'
 This is the body.
 
     This is also the body.
 EOD;
-        $expected = new AST\DocumentationBlock($tags, $summary, $body);
-        $data[] = array($expected, $blockComment);
+        $expected = new Element\DocumentationBlock($tags, $summary, $body);
+        $data['Standard block'] = array($expected, $blockComment);
 
-        // #2: Summary only
         $blockComment = <<<'EOD'
 /**
  * This is the summary.
@@ -70,14 +65,10 @@ EOD;
  *
  */
 EOD;
-        $summary = <<<'EOD'
-This is the summary.
-    This is also the summary.
-EOD;
-        $expected = new AST\DocumentationBlock(null, $summary);
-        $data[] = array($expected, $blockComment);
+        $summary = 'This is the summary. This is also the summary.';
+        $expected = new Element\DocumentationBlock(null, $summary);
+        $data['Summary only'] = array($expected, $blockComment);
 
-        // #3: Body only
         $blockComment = <<<'EOD'
 /**
  *
@@ -91,28 +82,27 @@ This is the body.
 
     This is also the body.
 EOD;
-        $expected = new AST\DocumentationBlock(null, null, $body);
-        $data[] = array($expected, $blockComment);
+        $expected = new Element\DocumentationBlock(null, null, $body);
+        $data['Body only'] = array($expected, $blockComment);
 
-        // #4: Tags only
         $blockComment = <<<'EOD'
 /**
  * @foo bar baz
  * @foo qux doom
  * @splat boing
+ *     This is part of the previous tag.
+ *
  * This is ignored.
- * This is also ignored.
  */
 EOD;
         $tags = array(
-            new AST\DocumentationTag('foo', 'bar baz'),
-            new AST\DocumentationTag('foo', 'qux doom'),
-            new AST\DocumentationTag('splat', 'boing'),
+            new Element\DocumentationTag('foo', 'bar baz'),
+            new Element\DocumentationTag('foo', 'qux doom'),
+            new Element\DocumentationTag('splat', "boing This is part of the previous tag."),
         );
-        $expected = new AST\DocumentationBlock($tags);
-        $data[] = array($expected, $blockComment);
+        $expected = new Element\DocumentationBlock($tags);
+        $data['Tags only'] = array($expected, $blockComment);
 
-        // #5: Empty tags
         $blockComment = <<<'EOD'
 /**
  * @foo
@@ -120,11 +110,11 @@ EOD;
  */
 EOD;
         $tags = array(
-            new AST\DocumentationTag('foo'),
-            new AST\DocumentationTag('bar'),
+            new Element\DocumentationTag('foo'),
+            new Element\DocumentationTag('bar'),
         );
-        $expected = new AST\DocumentationBlock($tags);
-        $data[] = array($expected, $blockComment);
+        $expected = new Element\DocumentationBlock($tags);
+        $data['Empty tags'] = array($expected, $blockComment);
 
         return $data;
     }
@@ -132,7 +122,7 @@ EOD;
     /**
      * @dataProvider blockCommentData
      */
-    public function testParseBlockComment(AST\DocumentationBlock $expected, $blockComment)
+    public function testParseBlockComment(Element\DocumentationBlock $expected, $blockComment)
     {
         $parser = new BloxParser;
 

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Eloquent\Blox\AST;
+namespace Eloquent\Blox\Element;
 
 use Phake;
 use PHPUnit_Framework_TestCase;
@@ -63,14 +63,14 @@ class DocumentationBlockTest extends PHPUnit_Framework_TestCase
         $expectedBaz = array();
 
 
-        $this->assertEquals($expectedFoo, $block->tagsbyName('foo'));
-        $this->assertEquals($expectedBar, $block->tagsbyName('bar'));
-        $this->assertEquals($expectedBaz, $block->tagsbyName('baz'));
+        $this->assertEquals($expectedFoo, $block->tagsByName('foo'));
+        $this->assertEquals($expectedBar, $block->tagsByName('bar'));
+        $this->assertEquals($expectedBaz, $block->tagsByName('baz'));
     }
 
     public function testAccept()
     {
-        $visitor = Phake::mock(__NAMESPACE__.'\Visitor');
+        $visitor = Phake::mock(__NAMESPACE__.'\DocumentationVisitorInterface');
         Phake::when($visitor)
             ->visitDocumentationBlock(Phake::anyParameters())
             ->thenReturn('foo')

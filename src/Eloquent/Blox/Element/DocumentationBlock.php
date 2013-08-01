@@ -9,14 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Eloquent\Blox\AST;
+namespace Eloquent\Blox\Element;
 
+/**
+ * Represents an entire documentation block.
+ */
 class DocumentationBlock
 {
     /**
-     * @param array<DocumentationTag>|null $tags
-     * @param string|null $summary
-     * @param string|null $body
+     * Construct a new documentation block.
+     *
+     * @param array<DocumentationTag>|null $tags    The tags contained in the
+     *     block.
+     * @param string|null                  $summary The summary text.
+     * @param string|null                  $body    The body text.
      */
     public function __construct(
         array $tags = null,
@@ -33,7 +39,9 @@ class DocumentationBlock
     }
 
     /**
-     * @return array<DocumentationTag>
+     * Get all the tags of this block.
+     *
+     * @return array<DocumentationTag> The tags.
      */
     public function tags()
     {
@@ -41,11 +49,13 @@ class DocumentationBlock
     }
 
     /**
-     * @param string $name
+     * Get all the tags of this block with a specific tag name.
      *
-     * @return array<DocumentationTag>
+     * @param string $name The tag name to search for.
+     *
+     * @return array<DocumentationTag> The tags with a matching tag name.
      */
-    public function tagsbyName($name)
+    public function tagsByName($name)
     {
         $tags = array();
         foreach ($this->tags() as $tag) {
@@ -58,7 +68,9 @@ class DocumentationBlock
     }
 
     /**
-     * @return string|null
+     * Get the summary text.
+     *
+     * @return string|null The summary text.
      */
     public function summary()
     {
@@ -66,7 +78,9 @@ class DocumentationBlock
     }
 
     /**
-     * @return string|null
+     * Get the body text.
+     *
+     * @return string|null The body text.
      */
     public function body()
     {
@@ -74,11 +88,13 @@ class DocumentationBlock
     }
 
     /**
-     * @param Visitor $visitor
+     * Visit this block.
      *
-     * @return mixed
+     * @param DocumentationVisitorInterface $visitor The visitor to accept.
+     *
+     * @return mixed The visitor's result.
      */
-    public function accept(Visitor $visitor)
+    public function accept(DocumentationVisitorInterface $visitor)
     {
         return $visitor->visitDocumentationBlock($this);
     }
