@@ -1,6 +1,6 @@
 # Blox changelog
 
-### 3.0.0 (unreleased)
+### 3.0.0 (2013-08-01)
 
 - **[BC BREAK]** `AST` namespace renamed to `Element`
 - **[BC BREAK]** Interfaces renamed to match naming conventions
