@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="13" assertions="24" failures="0" errors="0" time="0.253865">
+    <testsuite name="Eloquent\Blox\BloxParserTest" file="/home/travis/build/eloquent/blox/test/suite/Eloquent/Blox/BloxParserTest.php" namespace="Eloquent\Blox" fullPackage="Eloquent.Blox" tests="6" assertions="6" failures="0" errors="0" time="0.201921">
+      <testsuite name="Eloquent\Blox\BloxParserTest::testParseBlockComment" tests="6" assertions="6" failures="0" errors="0" time="0.201921">
+        <testcase name="testParseBlockComment with data set &quot;Empty block&quot;" assertions="1" time="0.144071"/>
+        <testcase name="testParseBlockComment with data set &quot;Standard block&quot;" assertions="1" time="0.016836"/>
+        <testcase name="testParseBlockComment with data set &quot;Summary only&quot;" assertions="1" time="0.007186"/>
+        <testcase name="testParseBlockComment with data set &quot;Body only&quot;" assertions="1" time="0.006575"/>
+        <testcase name="testParseBlockComment with data set &quot;Tags only&quot;" assertions="1" time="0.014048"/>
+        <testcase name="testParseBlockComment with data set &quot;Empty tags&quot;" assertions="1" time="0.013205"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="Eloquent\Blox\Element\DocumentationBlockTest" file="/home/travis/build/eloquent/blox/test/suite/Eloquent/Blox/Element/DocumentationBlockTest.php" namespace="Eloquent\Blox\Element" fullPackage="Eloquent.Blox.Element" tests="3" assertions="11" failures="0" errors="0" time="0.031563">
+      <testcase name="testBlock" class="Eloquent\Blox\Element\DocumentationBlockTest" file="/home/travis/build/eloquent/blox/test/suite/Eloquent/Blox/Element/DocumentationBlockTest.php" line="19" assertions="6" time="0.012291"/>
+      <testcase name="testTagsByName" class="Eloquent\Blox\Element\DocumentationBlockTest" file="/home/travis/build/eloquent/blox/test/suite/Eloquent/Blox/Element/DocumentationBlockTest.php" line="41" assertions="3" time="0.009518"/>
+      <testcase name="testAccept" class="Eloquent\Blox\Element\DocumentationBlockTest" file="/home/travis/build/eloquent/blox/test/suite/Eloquent/Blox/Element/DocumentationBlockTest.php" line="71" assertions="2" time="0.009754"/>
+    </testsuite>
+    <testsuite name="Eloquent\Blox\Element\DocumentationTagTest" file="/home/travis/build/eloquent/blox/test/suite/Eloquent/Blox/Element/DocumentationTagTest.php" namespace="Eloquent\Blox\Element" fullPackage="Eloquent.Blox.Element" tests="3" assertions="6" failures="0" errors="0" time="0.015094">
+      <testcase name="testTag" class="Eloquent\Blox\Element\DocumentationTagTest" file="/home/travis/build/eloquent/blox/test/suite/Eloquent/Blox/Element/DocumentationTagTest.php" line="19" assertions="2" time="0.003836"/>
+      <testcase name="testTagNullContent" class="Eloquent\Blox\Element\DocumentationTagTest" file="/home/travis/build/eloquent/blox/test/suite/Eloquent/Blox/Element/DocumentationTagTest.php" line="29" assertions="2" time="0.003778"/>
+      <testcase name="testAccept" class="Eloquent\Blox\Element\DocumentationTagTest" file="/home/travis/build/eloquent/blox/test/suite/Eloquent/Blox/Element/DocumentationTagTest.php" line="38" assertions="2" time="0.007480"/>
+    </testsuite>
+    <testsuite name="FunctionalTest" file="/home/travis/build/eloquent/blox/test/suite/FunctionalTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.005287">
+      <testcase name="testExample" class="FunctionalTest" file="/home/travis/build/eloquent/blox/test/suite/FunctionalTest.php" line="16" assertions="1" time="0.005287"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

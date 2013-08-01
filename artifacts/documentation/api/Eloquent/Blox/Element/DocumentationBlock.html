@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Eloquent\Blox\Element\DocumentationBlock | Blox API</title>
+                    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../../classes.html">Classes</a></li>
+                            <li><a href="../../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Blox API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../../Eloquent/Blox/Element.html">Eloquent\Blox\Element</a>\DocumentationBlock</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>DocumentationBlock</strong></p>
+
+            <div class="description">
+            <p>Represents an entire documentation block.</p>
+            <p></p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(array $tags = null, string|null $summary = null, string|null $body = null)
+                    <p>Construct a new documentation block.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Eloquent\Blox\Element\array&lt;DocumentationTag&gt;">array&lt;DocumentationTag&gt;</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_tags">tags</a>()
+                    <p>Get all the tags of this block.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Eloquent\Blox\Element\array&lt;DocumentationTag&gt;">array&lt;DocumentationTag&gt;</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_tagsByName">tagsByName</a>(string $name)
+                    <p>Get all the tags of this block with a specific tag name.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|null
+                </td>
+                <td class="last">
+                    <a href="#method_summary">summary</a>()
+                    <p>Get the summary text.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|null
+                </td>
+                <td class="last">
+                    <a href="#method_body">body</a>()
+                    <p>Get the body text.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_accept">accept</a>(<a href="../../../Eloquent/Blox/Element/DocumentationVisitorInterface.html"><abbr title="Eloquent\Blox\Element\DocumentationVisitorInterface">DocumentationVisitorInterface</abbr></a> $visitor)
+                    <p>Visit this block.</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 27</div>
+        <code>            public            
+    <strong>__construct</strong>(array $tags = null, string|null $summary = null, string|null $body = null)</code>
+    </h3>
+    <div class="details">
+        <p>Construct a new documentation block.</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$tags</td>
+                <td>The tags contained in the block.</td>
+            </tr>
+                    <tr>
+                <td>string|null</td>
+                <td>$summary</td>
+                <td>The summary text.</td>
+            </tr>
+                    <tr>
+                <td>string|null</td>
+                <td>$body</td>
+                <td>The body text.</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_tags">
+        <div class="location">at line 46</div>
+        <code>            public            <abbr title="Eloquent\Blox\Element\array&lt;DocumentationTag&gt;">array&lt;DocumentationTag&gt;</abbr>
+    <strong>tags</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get all the tags of this block.</p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Eloquent\Blox\Element\array&lt;DocumentationTag&gt;">array&lt;DocumentationTag&gt;</abbr></td>
+            <td>The tags.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_tagsByName">
+        <div class="location">at line 58</div>
+        <code>            public            <abbr title="Eloquent\Blox\Element\array&lt;DocumentationTag&gt;">array&lt;DocumentationTag&gt;</abbr>
+    <strong>tagsByName</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Get all the tags of this block with a specific tag name.</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The tag name to search for.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Eloquent\Blox\Element\array&lt;DocumentationTag&gt;">array&lt;DocumentationTag&gt;</abbr></td>
+            <td>The tags with a matching tag name.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_summary">
+        <div class="location">at line 75</div>
+        <code>            public            string|null
+    <strong>summary</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the summary text.</p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|null</td>
+            <td>The summary text.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_body">
+        <div class="location">at line 85</div>
+        <code>            public            string|null
+    <strong>body</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the body text.</p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|null</td>
+            <td>The body text.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_accept">
+        <div class="location">at line 97</div>
+        <code>            public            mixed
+    <strong>accept</strong>(<a href="../../../Eloquent/Blox/Element/DocumentationVisitorInterface.html"><abbr title="Eloquent\Blox\Element\DocumentationVisitorInterface">DocumentationVisitorInterface</abbr></a> $visitor)</code>
+    </h3>
+    <div class="details">
+        <p>Visit this block.</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../Eloquent/Blox/Element/DocumentationVisitorInterface.html"><abbr title="Eloquent\Blox\Element\DocumentationVisitorInterface">DocumentationVisitorInterface</abbr></a></td>
+                <td>$visitor</td>
+                <td>The visitor to accept.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>The visitor&#039;s result.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
