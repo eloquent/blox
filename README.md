@@ -2,8 +2,9 @@
 
 *A parser for block comment documentation.*
 
-[![Build Status]][Latest build]
-[![Test Coverage]][Test coverage report]
+[![The most recent stable version is 3.0.0]][Semantic versioning]
+[![Current build status image]][Current build status]
+[![Current coverage status image]][Current coverage status]
 
 ## Installation and documentation
 
@@ -124,7 +125,12 @@ are collapsed into a single space.
 [eloquent/blox]: https://packagist.org/packages/eloquent/blox
 [PCRE]: http://php.net/pcre
 
-[Build Status]: https://api.travis-ci.org/eloquent/blox.png?branch=master
-[Latest build]: https://travis-ci.org/eloquent/blox
-[Test coverage report]: https://coveralls.io/r/eloquent/blox
-[Test Coverage]: https://coveralls.io/repos/eloquent/blox/badge.png?branch=master
+[API documentation]: http://lqnt.co/blox/artifacts/documentation/api/
+[Composer]: http://getcomposer.org/
+[Current build status image]: http://b.adge.me/travis/eloquent/blox/develop.svg "Current build status for the develop branch"
+[Current build status]: https://travis-ci.org/eloquent/blox
+[Current coverage status image]: http://b.adge.me/coveralls/eloquent/blox/develop.svg "Current test coverage for the develop branch"
+[Current coverage status]: https://coveralls.io/r/eloquent/blox
+[eloquent/blox]: https://packagist.org/packages/eloquent/blox
+[Semantic versioning]: http://semver.org/
+[The most recent stable version is 3.0.0]: http://b.adge.me/:semver-3.0.0-brightgreen.svg "This project uses semantic versioning"
