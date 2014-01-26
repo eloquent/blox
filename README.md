@@ -127,10 +127,10 @@ are collapsed into a single space.
 
 [API documentation]: http://lqnt.co/blox/artifacts/documentation/api/
 [Composer]: http://getcomposer.org/
-[Current build status image]: https://b.adge.me/travis/eloquent/blox/develop.svg "Current build status for the develop branch"
+[Current build status image]: https://img.shields.io/travis/eloquent/blox/develop.svg "Current build status for the develop branch"
 [Current build status]: https://travis-ci.org/eloquent/blox
-[Current coverage status image]: https://b.adge.me/coveralls/eloquent/blox/develop.svg "Current test coverage for the develop branch"
+[Current coverage status image]: https://img.shields.io/coveralls/eloquent/blox/develop.svg "Current test coverage for the develop branch"
 [Current coverage status]: https://coveralls.io/r/eloquent/blox
 [eloquent/blox]: https://packagist.org/packages/eloquent/blox
 [Semantic versioning]: http://semver.org/
-[The most recent stable version is 3.0.1]: https://b.adge.me/:semver-3.0.1-brightgreen.svg "This project uses semantic versioning"
+[The most recent stable version is 3.0.1]: https://img.shields.io/:semver-3.0.1-brightgreen.svg "This project uses semantic versioning"
