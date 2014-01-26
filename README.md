@@ -2,7 +2,7 @@
 
 *A parser for block comment documentation.*
 
-[![The most recent stable version is 3.0.0]][Semantic versioning]
+[![The most recent stable version is 3.0.1]][Semantic versioning]
 [![Current build status image]][Current build status]
 [![Current coverage status image]][Current coverage status]
 
@@ -133,4 +133,4 @@ are collapsed into a single space.
 [Current coverage status]: https://coveralls.io/r/eloquent/blox
 [eloquent/blox]: https://packagist.org/packages/eloquent/blox
 [Semantic versioning]: http://semver.org/
-[The most recent stable version is 3.0.0]: http://b.adge.me/:semver-3.0.0-brightgreen.svg "This project uses semantic versioning"
+[The most recent stable version is 3.0.1]: http://b.adge.me/:semver-3.0.1-brightgreen.svg "This project uses semantic versioning"
