@@ -24,7 +24,6 @@ class DocumentationBlockTest extends PHPUnit_Framework_TestCase
         $this->assertNull($block->summary());
         $this->assertNull($block->body());
 
-
         $tags = array(
             new DocumentationTag('foo', 'bar'),
             new DocumentationTag('baz', 'qux'),
@@ -61,7 +60,6 @@ class DocumentationBlockTest extends PHPUnit_Framework_TestCase
             $tagBarB,
         );
         $expectedBaz = array();
-
 
         $this->assertEquals($expectedFoo, $block->tagsByName('foo'));
         $this->assertEquals($expectedBar, $block->tagsByName('bar'));

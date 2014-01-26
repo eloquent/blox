@@ -19,8 +19,7 @@ class DocumentationBlock
     /**
      * Construct a new documentation block.
      *
-     * @param array<DocumentationTag>|null $tags    The tags contained in the
-     *     block.
+     * @param array<DocumentationTag>|null $tags    The tags contained in the block.
      * @param string|null                  $summary The summary text.
      * @param string|null                  $body    The body text.
      */
